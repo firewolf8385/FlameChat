@@ -1,6 +1,6 @@
 package firewolf8385.flamechat.commands;
 
-import firewolf8385.flamechat.Util;
+import firewolf8385.flamechat.FlameUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -47,11 +47,11 @@ public class FC implements CommandExecutor
      */
     private void info(CommandSender sender)
     {
-        Util.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
-        Util.chat(sender, "  &8» &eAuthor &8- &ffirewolf8385");
-        Util.chat(sender, "  &8» &eVersion &8- &f" + Util.getVersion());
-        Util.chat(sender, "  &8» &eSpigot &8- &fComing soon.");
-        Util.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
+        FlameUtils.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
+        FlameUtils.chat(sender, "  &8» &eAuthor &8- &ffirewolf8385");
+        FlameUtils.chat(sender, "  &8» &eVersion &8- &f" + FlameUtils.getVersion());
+        FlameUtils.chat(sender, "  &8» &eSpigot &8- &fComing soon.");
+        FlameUtils.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
     }
 
     /**
@@ -60,12 +60,12 @@ public class FC implements CommandExecutor
      */
     private void help(CommandSender sender)
     {
-        Util.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
-        Util.chat(sender, "  &8» &e/fc help &8- &fShows this page.");
-        Util.chat(sender, "  &8» &e/fc info &8- &fShows plugin info");
-        Util.chat(sender, "  &8» &e/fc reload &8- &fReloads config files.");
-        Util.chat(sender, "  &8» &e/fc version &8- &fShows the plugin version.");
-        Util.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
+        FlameUtils.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
+        FlameUtils.chat(sender, "  &8» &e/fc help &8- &fShows this page.");
+        FlameUtils.chat(sender, "  &8» &e/fc info &8- &fShows plugin info");
+        FlameUtils.chat(sender, "  &8» &e/fc reload &8- &fReloads config files.");
+        FlameUtils.chat(sender, "  &8» &e/fc version &8- &fShows the plugin version.");
+        FlameUtils.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
     }
 
     /**
@@ -74,11 +74,11 @@ public class FC implements CommandExecutor
      */
     private void reload(CommandSender sender)
     {
-        Util.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
-        Util.chat(sender, "  &8» &eAuthor &8- &ffirewolf8385");
-        Util.chat(sender, "  &8» &eVersion &8- &f" + Util.getVersion());
-        Util.chat(sender, "  &8» &eSpigot &8- &fComing soon.");
-        Util.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
+        FlameUtils.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
+        FlameUtils.chat(sender, "  &8» &eAuthor &8- &ffirewolf8385");
+        FlameUtils.chat(sender, "  &8» &eVersion &8- &f" + FlameUtils.getVersion());
+        FlameUtils.chat(sender, "  &8» &eSpigot &8- &fComing soon.");
+        FlameUtils.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
     }
 
     /**
@@ -87,9 +87,9 @@ public class FC implements CommandExecutor
      */
     private void version(CommandSender sender)
     {
-        Util.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
-        Util.chat(sender, "  &8» &eVersion &8- &f" + Util.getVersion());
-        Util.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
+        FlameUtils.chat(sender, "&6&l]&8&m--------------------&6&lFlameChat&8&m--------------------&6&l[");
+        FlameUtils.chat(sender, "  &8» &eVersion &8- &f" + FlameUtils.getVersion());
+        FlameUtils.chat(sender, "&6&l]&8&m---------------------------------------------------&6&l[");
     }
 
 }
