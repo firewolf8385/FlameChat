@@ -1,15 +1,29 @@
 package firewolf8385.flamechat;
 
+import firewolf8385.flamechat.commands.FC;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FlameChat extends JavaPlugin
 {
     private static FlameChat plugin;
 
+    /***************************************************************************************
+     *    Title: FlameChat
+     *    Author: firewolf8385
+     *    Date: August 24th, 2019
+     *    Code version: 0.1 Alpha
+     ***************************************************************************************/
+
     @Override
     public void onEnable()
     {
         plugin = this;
+
+        
+
+        //registers commands and events
+        registerCommands();
+        registerEvents();
     }
 
     @Override
@@ -34,7 +48,7 @@ public class FlameChat extends JavaPlugin
      */
     private void registerCommands()
     {
-
+        getCommand("flamechat").setExecutor(new FC());
     }
 
     /**

@@ -1,0 +1,9 @@
+name: FlameChat
+version: 0.1 Alpha
+author: firewolf8385
+main: firewolf8385.flamechat.FlameChat
+commands:
+  flamechat:
+    usage: /<command>
+    description: Main FlameChat command
+    aliases: [fc]
