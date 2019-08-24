@@ -55,7 +55,7 @@ public class Util
      * Gets the version of the plugin.
      * @return Version
      */
-    protected static String getVersion()
+    public static String getVersion()
     {
         return FlameChat.get().getDescription().getVersion();
     }
