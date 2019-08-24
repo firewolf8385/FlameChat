@@ -33,21 +33,21 @@ public class Util
      * @param type Type of message to log.
      * @param message The message to log.
      */
-    public static void log(String type, String message)
+    protected static void log(String type, String message)
     {
         switch(type)
         {
             case "info":
                 Bukkit.getLogger().info("[FlameChat] " + message);
-                return;
+                break;
 
             case "warning":
                 Bukkit.getLogger().warning("[FLameChat] " + message);
-                return;
+                break;
 
             case "severe":
                 Bukkit.getLogger().severe("[FlameChat] " + message);
-                return;
+                break;
         }
     }
 
