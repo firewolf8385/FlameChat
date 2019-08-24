@@ -19,7 +19,8 @@ public class FlameChat extends JavaPlugin
     {
         plugin = this;
 
-        
+        // Enables bStats
+        MetricsLite metrics = new MetricsLite(this);
 
         //registers commands and events
         registerCommands();
