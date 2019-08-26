@@ -1,18 +1,21 @@
 package firewolf8385.flamechat;
 
 import firewolf8385.flamechat.commands.FC;
+import firewolf8385.flamechat.configuration.Blacklist;
+import firewolf8385.flamechat.configuration.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FlameChat extends JavaPlugin
 {
-    private static FlameChat plugin;
-
     /***************************************************************************************
      *    Title: FlameChat
      *    Author: firewolf8385
      *    Date: August 24th, 2019
      *    Code version: 0.1 Alpha
      ***************************************************************************************/
+    private static FlameChat plugin;
+    Config config = Config.getInstance();
+    Blacklist blacklist = Blacklist.getInstance();
 
     @Override
     public void onEnable()
@@ -22,9 +25,13 @@ public class FlameChat extends JavaPlugin
         // Enables bStats
         MetricsLite metrics = new MetricsLite(this);
 
-        //registers commands and events
+        // registers commands and events
         registerCommands();
         registerEvents();
+
+        // Sets up config files
+        config.setup(this);
+        blacklist.setup(this);
     }
 
     @Override
