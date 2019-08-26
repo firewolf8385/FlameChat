@@ -3,6 +3,7 @@ package firewolf8385.flamechat;
 import firewolf8385.flamechat.commands.FC;
 import firewolf8385.flamechat.configuration.Blacklist;
 import firewolf8385.flamechat.configuration.Config;
+import firewolf8385.flamechat.configuration.Messages;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FlameChat extends JavaPlugin
@@ -16,6 +17,7 @@ public class FlameChat extends JavaPlugin
     private static FlameChat plugin;
     Config config = Config.getInstance();
     Blacklist blacklist = Blacklist.getInstance();
+    Messages messages = Messages.getInstance();
 
     @Override
     public void onEnable()
@@ -32,6 +34,7 @@ public class FlameChat extends JavaPlugin
         // Sets up config files
         config.setup(this);
         blacklist.setup(this);
+        messages.setup(this);
     }
 
     @Override
