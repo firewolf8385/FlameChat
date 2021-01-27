@@ -1,0 +1,26 @@
+main: com.github.firewolf8385.flamechat.FlameChat
+name: FlameChat
+version: 1.0
+api-version: 1.13
+author: firewolf8385
+depend: [PlaceholderAPI]
+
+commands:
+  flamechat:
+    description: Main plugin command.
+    usage: /<command>
+    aliases: [fc]
+    permission: flamechat.admin
+  message:
+    description: Message other players
+    usage: /<command>
+    aliases: [msg,tell,t,whisper,w]
+  reply:
+    description: Reply to a player.
+    usage: /<command>
+    aliases: [r]
+  socialspy:
+    description: Spy on messages
+    usage: /<command>
+    aliases: [ss,spy]
+    permission: flamechat.socialspy

@@ -1,0 +1,16 @@
+private_message_formats:
+  to-sender:
+    format:
+      text: '&8[&6/r&8] &7you &3-> &7%recipient_player_name%&7: '
+      tooltip:
+        - '&7Click here to reply back to this user.'
+      click-command: '/r '
+    message-color: '&6'
+  to-recipient:
+    format:
+      text: '&8[&6/r&8] &7%player_name% &3-> &7%recipient_player_name%&7: '
+      tooltip:
+        - '&6Click here to reply back to this user.'
+      click-command: '/r '
+    message-color: '&6'
+  social-spy: '&8[&cSpy&8] &f%player% &e-> &f%recipient%&7: '
