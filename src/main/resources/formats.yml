@@ -1,7 +1,7 @@
 formats:
   default:
     prefix:
-      text: "%deluxetags_tag% %luckperms_prefix%"
+      text: "%vault-prefix%"
       click-command: "/ranks"
       tooltip:
         - "%player_name%"
@@ -10,11 +10,11 @@ formats:
       text: "%player_name%"
       click-command: "/msg %player_name%"
       tooltip:
-        - "&7This is %player_name%!"
+        - "%player_name%!"
         - "&7Rank: %vault-prefix%"
     suffix:
       text: " &8» "
       click-command: ""
       tooltip:
         - ''
-    message-color: "%cc_color%"
+    message-color: "&7"
