@@ -27,6 +27,8 @@ public class FlameChat extends JavaPlugin {
         settings.setup(this);
         registerListeners();
 
+        new MetricsLite(this, 5415);
+
         getCommand("flamechat").setExecutor(new FlameChatCMD());
         getCommand("message").setExecutor(new MessageCMD());
         getCommand("reply").setExecutor(new ReplyCMD());
