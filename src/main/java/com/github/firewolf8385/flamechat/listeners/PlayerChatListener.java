@@ -51,7 +51,7 @@ public class PlayerChatListener implements Listener
                 .append(prefix)
                 .append(name)
                 .append(suffix)
-                .append(TextComponent.fromLegacyText(ChatUtils.translate(PlaceholderAPI.setPlaceholders(p, settings.getFormats().getString("formats." + format + ".message-color")) + e.getMessage())))
+                .append(new TextComponent(TextComponent.fromLegacyText(ChatUtils.translate(PlaceholderAPI.setPlaceholders(p, settings.getFormats().getString("formats." + format + ".message-color")) + e.getMessage()))))
                 .create();
 
         for(Player player : Bukkit.getOnlinePlayers()) {
@@ -72,11 +72,11 @@ public class PlayerChatListener implements Listener
 
         List<String> lines = settings.getFormats().getStringList(path + ".tooltip");
         ArrayList components = new ArrayList();
-        TextComponent hoverMessage = new TextComponent(new ComponentBuilder(PlaceholderAPI.setPlaceholders(p, ChatUtils.translate(lines.get(0)))).create());
+        TextComponent hoverMessage = new TextComponent(new TextComponent(TextComponent.fromLegacyText(ChatUtils.translate(PlaceholderAPI.setPlaceholders(p, lines.get(0))))));
         TextComponent newLine = new TextComponent(ComponentSerializer.parse("{text: \"\n\"}"));
         for(int i = 1; i < lines.size(); i++){
             hoverMessage.addExtra(newLine);
-            hoverMessage.addExtra(new TextComponent(new ComponentBuilder(PlaceholderAPI.setPlaceholders(p, ChatUtils.translate(lines.get(i)))).create()));
+            hoverMessage.addExtra(new TextComponent(TextComponent.fromLegacyText(ChatUtils.translate(PlaceholderAPI.setPlaceholders(p, lines.get(i))))));
         }
         components.add(hoverMessage);
         BaseComponent[] hoverToSend = (BaseComponent[])components.toArray(new BaseComponent[components.size()]);
