@@ -51,7 +51,7 @@ public class PlayerChatListener implements Listener
                 .append(prefix)
                 .append(name)
                 .append(suffix)
-                .append(TextComponent.fromLegacyText(ChatUtils.translate(settings.getFormats().getString("formats." + format + ".message-color") + e.getMessage())))
+                .append(TextComponent.fromLegacyText(ChatUtils.translate(PlaceholderAPI.setPlaceholders(p, settings.getFormats().getString("formats." + format + ".message-color")) + e.getMessage())))
                 .create();
 
         for(Player player : Bukkit.getOnlinePlayers()) {
