@@ -14,21 +14,29 @@ import org.bukkit.entity.Player;
 
 import java.util.*;
 
-public class MessageCMD implements CommandExecutor {
+/**
+ * Message another player.
+ */
+public class MessageCMD extends AbstractCommand implements CommandExecutor {
     private static final Settings settings = Settings.getInstance();
     public static Map<UUID, UUID> reply = new HashMap<>();
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    /**
+     * Registers the command.
+     */
+    public MessageCMD() {
+        super("message", "flamechat.message", false);
+    }
 
-        if(!(sender instanceof Player)) {
-            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cOnly players can message others.");
-            return true;
-        }
-
+    /**
+     * Executes the command.
+     * @param sender The Command Sender.
+     * @param args Arguments of the command.
+     */
+    public void execute(CommandSender sender, String[] args) {
         if(args.length < 2) {
-            ChatUtils.chat(sender, "&cIncorrect Usage! &7/msg <player> <message>");
-            return true;
+            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cUsage: /msg <player> <message>");
+            return;
         }
 
         Player player = (Player) sender;
@@ -36,7 +44,7 @@ public class MessageCMD implements CommandExecutor {
 
         if(target == null) {
             ChatUtils.chat(sender, "&c&l(&7!&c&l) &cThat player is not online.");
-            return true;
+            return;
         }
 
         StringBuilder message = new StringBuilder();
@@ -80,9 +88,8 @@ public class MessageCMD implements CommandExecutor {
 
             ChatUtils.chat(spy, settings.getConfig().getString("private_message_formats.social-spy").replace("%player%", player.getName()).replace("%recipient%", target.getName()) + message);
         }
-
-        return true;
     }
+
 
     private TextComponent makeComponent(Player p, FileConfiguration config, String path, Player player, Player target) {
         String str = PlaceholderAPI.setPlaceholders(p, config.getString(path + ".text").replace("%player_name%", player.getName()).replace("%recipient_player_name%", target.getName()));

@@ -6,8 +6,6 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.chat.ComponentSerializer;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -16,18 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ReplyCMD implements CommandExecutor {
+/**
+ * Reply to the most recent message received.
+ */
+public class ReplyCMD extends AbstractCommand {
     private static final Settings settings = Settings.getInstance();
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(!(sender instanceof Player)) {
-            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cOnly players can message others.");
-            return true;
-        }
 
+    /**
+     * Registers the command.
+     */
+    public ReplyCMD() {
+        super("reply", "flamechat.reply", false);
+    }
+
+    /**
+     * Executes the command.
+     * @param sender The Command Sender.
+     * @param args Arguments of the command.
+     */
+    public void execute(CommandSender sender, String[] args) {
         if(args.length < 1) {
-            ChatUtils.chat(sender, "&cIncorrect Usage! &7/r <message>");
-            return true;
+            ChatUtils.chat(sender, "&c&l(&7!&c&l) &cUsage: /r <message>");
+            return;
         }
 
         Player player = (Player) sender;
@@ -35,7 +43,7 @@ public class ReplyCMD implements CommandExecutor {
 
         if(target == null) {
             ChatUtils.chat(sender, "&c&l(&7!&c&l) &cThat player is not online.");
-            return true;
+            return;
         }
 
         StringBuilder message = new StringBuilder();
@@ -79,8 +87,6 @@ public class ReplyCMD implements CommandExecutor {
 
             ChatUtils.chat(spy, settings.getConfig().getString("private_message_formats.social-spy").replace("%player%", player.getName()).replace("%recipient%", target.getName()) + message);
         }
-
-        return true;
     }
 
     private TextComponent makeComponent(Player p, FileConfiguration config, String path, Player player, Player target) {

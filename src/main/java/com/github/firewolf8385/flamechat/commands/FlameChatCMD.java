@@ -2,28 +2,34 @@ package com.github.firewolf8385.flamechat.commands;
 
 import com.github.firewolf8385.flamechat.Settings;
 import com.github.firewolf8385.flamechat.utils.ChatUtils;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class FlameChatCMD implements CommandExecutor {
+/**
+ * Main plugin command.
+ */
+public class FlameChatCMD extends AbstractCommand {
     private static final Settings settings = Settings.getInstance();
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(!sender.hasPermission("flamechat.admin")) {
-            return true;
-        }
+    /**
+     * Registers the command.
+     */
+    public FlameChatCMD() {
+        super("flamechat", "flamechat.admin", true);
+    }
 
+    /**
+     * Executes the command.
+     * @param sender The Command Sender.
+     * @param args Arguments of the command.
+     */
+    public void execute(CommandSender sender, String[] args) {
         if(args.length == 0) {
-            return true;
+            return;
         }
 
         if(args[0].equals("reload")) {
             settings.reloadFormats();
             ChatUtils.chat(sender, "&a&l(&7!&a&l) &aChat formats have been reloaded!");
         }
-
-        return true;
     }
 }
